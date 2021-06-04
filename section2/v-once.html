@@ -8,15 +8,22 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
     <div id="app">
-      <p>{{message}}</p>
+      <p v-once>{{message}}</p>
+      <!-- v-onceを使うことによって書き換えを防止する事ができる -->
+      <p>{{ sayHi() }}</p>
     </div>
     <script>
       new Vue({
         el: '#app',
         data: {
           message: 'HelloWorld!'
+        },
+        methods: {
+          sayHi() {
+            this.message = 'Hello VueJS'
+            return 'Hi'
+          }
         }
       })
     </script>
