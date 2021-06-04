@@ -9,15 +9,24 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <div id="app">
-      <a :href="url">Google</a>
-<!--       v-bind:属性で使う事ができる
-      v-bindの記述は省略できる -->
+      <a :[attribute]="url">Google</a>
+      <a v-bind="twitterObject">Twitter</a>
+<!--  v-bind:属性で使う事ができる
+      v-bindの記述は省略できる 
+      属性も動的に指定する事ができる
+      href以外にもidとか指定できる
+      v-bindをオブジェクト形式で書く事ができる  -->
     </div>
     <script>
       new Vue({
         el: '#app',
         data: {
-          url: 'https://www.google.com/'
+          url: 'https://www.google.com/',
+          attribute: 'href',
+          twitterObject: {
+            href: 'https://twitter.com',
+            id: 31
+          }
         }
       })
     </script>
