@@ -10,9 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <div id="app">
       <p>現在{{ number }}回クリックされています</p>
-      <button v-on:click="countUp">カウントアップ</button>
-      <!-- v-onはDOMが提供しているイベントが実行された瞬間に関数を実行する -->
-      <p v-on:mousemove="changeMousePosition">マウスを載せてください</p>
+      <button v-on:click="countUp(3)">カウントアップ</button>
+<!--       v-onはDOMが提供しているイベントが実行された瞬間に関数を実行する
+      普通のJSと同じように関数に引数を持たせる事ができる -->
+      <p v-on:mousemove="changeMousePosition($event, 10)">マウスを載せてください</p>
+      <!-- イベントオブジェクトを参照するには$eventという特別な引数を指定する必要がある -->
       <p>X:{{x}}、Y:{{y}}</p>
     </div>
     <script>
@@ -27,9 +29,9 @@
           countUp: function() {
             this.number += 1
           },
-          changeMousePosition: function(event) {
-            this.x = event.clientX;
-            this.y = event.clientY;
+          changeMousePosition: function(event, divideNumber) {
+            this.x = event.clientX / divideNumber;
+            this.y = event.clientY / divideNumber;
           }
           /* 関数の引数にeventを取るとイベントオブジェクトを取得する事ができる */
         }
