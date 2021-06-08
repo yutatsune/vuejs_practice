@@ -10,8 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <div id="app">
       <p>現在{{ number }}回クリックされています</p>
-      <button v-on:[event]="countUp">カウントアップ</button>
+      <button @[event]="countUp">カウントアップ</button>
       <!-- DOMイベントを動的に取る事ができる -->
+      <!-- @と書く事でv-onを省略できる -->
     </div>
     <script>
       new Vue({
