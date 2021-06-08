@@ -21,6 +21,8 @@
       <!-- .preventと書く事でpreventDefaultと同じ動作をさせる事ができる -->
       <!-- .stopと.preventは両方書く事ができる -->
       <p>X:{{x}}、Y:{{y}}</p>
+      <input type="text" v-on:keyup.space.enter="myAlert">
+      <!-- 特定のキーボードを押したときにイベントを発火することもできる -->
     </div>
     <script>
       new Vue({
@@ -37,8 +39,11 @@
           changeMousePosition: function(event, divideNumber) {
             this.x = event.clientX / divideNumber;
             this.y = event.clientY / divideNumber;
-          }
+          },
           /* 関数の引数にeventを取るとイベントオブジェクトを取得する事ができる */
+          myAlert() {
+            alert('アラート！');
+          }
         }
       })
     </script>
