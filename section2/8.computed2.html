@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <div id="app">
+    <p>{{counter}}</p>
+    <button @click="counter += 1">+1</button>
+    <p>{{lessThanThreeComputed}}</p>
+  </div>
+  <script>
+    new Vue ({
+      el: '#app',
+      data: {
+        counter: 0
+      },
+      computed: {
+        lessThanThreeComputed: function() {
+          return this.counter > 3 ? '3より上' : '3以下'
+        }
+      },
+      watch: {
+        counter: function() {
+          var vm = this;
+          setTimeout(function(){
+            vm.counter = 0
+          }, 3000)
+        }
+      }
+      /* watchはある特定のデータが変更されたときに発火する */
+    })
+  </script>
+</body>
+</html>
