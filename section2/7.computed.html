@@ -11,20 +11,33 @@
   <div id="app">
     <p>{{counter}}</p>
     <button @click="counter += 1">+1</button>
-    <p>{{lessThanThree}}</p>
+    <p>{{otherCounter}}</p>
+    <button @click="otherCounter += 1">+1</button>
+    <p>{{lessThanThreeComputed}}</p>
+    <p>{{lessThanThreeMethod()}}</p>
   </div>
   <script>
     new Vue ({
       el: '#app',
       data: {
-        counter: 0
+        counter: 0,
+        otherCounter: 0
       },
       computed: {
-        lessThanThree: function() {
+        lessThanThreeComputed: function() {
+          console.log('Computed')
+          return this.counter > 3 ? '3より上' : '3以下'
+        }
+      },
+      methods: {
+        lessThanThreeMethod: function() {
+          console.log('Method')
           return this.counter > 3 ? '3より上' : '3以下'
         }
       }
       /* computedはプロパティを動的に表現する事ができる */
+      /* methodは全てのプロパティを書き換えようとする */
+      /* computedは参照先プロパティが変更された時のみ適用する事ができる */
     })
   </script>
 </body>
