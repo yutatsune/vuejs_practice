@@ -12,12 +12,15 @@
   <div id='app'>
     <h1 :class="classObject">Hello</h1>
     <button @click="isActive = !isActive">切り替え</button>
+    <h1 :class="[{red: isActive}, bg]">Hello</h1>
   </div>
   <script>
     new Vue ({
       el: '#app',
       data: {
-        isActive: true
+        isActive: true,
+        color: 'red',
+        bg: 'bg-blue'
       },
       computed: {
         classObject: function() {
