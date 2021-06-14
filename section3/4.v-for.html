@@ -11,15 +11,25 @@
   <div id='app'>
     <ul>
       <li v-for="(fruit, index) in fruits">({{index}}){{fruit}}</li>
-<!--       引数 in 配列として{{引数}}と書く事で配列の中身を取り出す事ができる
-      第二引数としてインデックス（添字）を持たせる事ができる -->
     </ul>
+    <ul>
+      <li v-for="(value, key, index) in object">({{index}}){{key}}-{{value}}</li>
+    </ul>
+<!--       v-forは配列とオブジェクトをレンダリングする事ができる
+      引数 in 配列として{{引数}}と書く事で配列の中身を取り出す事ができる
+      [配列]第二引数としてインデックス（添字）を持たせる事ができる
+      [オブジェクト]引数は、第一引数（バリュー）・第二引数（キー）・第三引数（インデックス） -->
   </div>
   <script>
     new Vue ({
       el: '#app',
       data: {
-        fruits: ['りんご', 'バナナ', 'ぶどう']
+        fruits: ['りんご', 'バナナ', 'ぶどう'],
+        object: {
+          firstname: '太郎',
+          lastname: '田中',
+          age: 21
+        }
       }
     })
   </script>
