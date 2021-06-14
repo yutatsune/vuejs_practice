@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <div id='app'>
+  <button @click="ok = !ok">ボタン</button>
+  <p v-if="ok">If</p>
+  <p v-show="ok">Show</p>
+<!--   v-ifは要素ごと消える。v-showはdisplay: none;で隠される
+  何度も条件が切り替わる場合はv-show、一度だけ読み込んで変わらない場合はv-ifを使う
+  （v-ifは要素ごと消すため処理が重ため）
+  v-showはtemplate要素に使う事ができない
+  （存在しない要素をdisplay: none;で隠すことはできないため） -->
+  </div>
+  <script>
+    new Vue ({
+      el: '#app',
+      data: {
+        ok: true
+      }
+    })
+  </script>
+</body>
+</html>
