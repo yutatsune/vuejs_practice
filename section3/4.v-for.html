@@ -10,8 +10,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <div id='app'>
     <ul>
-      <li v-for="fruit in fruits">{{fruit}}</li>
-      引数 in 配列として{{引数}}と書く事で配列の中身を取り出す事ができる
+      <li v-for="(fruit, index) in fruits">({{index}}){{fruit}}</li>
+<!--       引数 in 配列として{{引数}}と書く事で配列の中身を取り出す事ができる
+      第二引数としてインデックス（添字）を持たせる事ができる -->
     </ul>
   </div>
   <script>
