@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <div id='app'>
+    <p>{{message}}</p>
+    <p>{{name}}</p>
+    <button @click="message = 'ボタンから変更'">変更</button>
+  </div>
+  <script>
+    vm = new Vue ({
+      el: '#app',
+      data: {
+        message: 'インスタンス１',
+        name: 'ゆうた'
+      }
+    })
+    console.log(vm)
+    /* Vueインスタンス内にプロパティを書かなければ、geterとseter(Wacher)がセットされず（リアクティブにならない）、JSの関数を実行する事ができない */
+  </script>
+</body>
+</html>
