@@ -13,9 +13,10 @@
   </div>
   <div id='app2'>
     <p>{{message}}</p>
+    <button @click="changeMessage1">インスタンス１のmessageを変更</button>
   </div>
   <script>
-    new Vue ({
+    vm1 = new Vue ({
       el: '#app1',
       data: {
         message: 'インスタンス１'
@@ -25,6 +26,12 @@
       el: '#app2',
       data: {
         message: 'インスタンス２'
+      },
+      methods: {
+        changeMessage1: function() {
+          vm1.message = 'インスタンス２から変えました。'
+          /* 外側からVueインスタンスにアクセスするには、Vueインスタンスを変数に代入する */
+        }
       }
     })
     /* Vueインスタンスは複数作る事ができる */
