@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <div id='app'>
+    <p>{{message}}</p>
+    <p>{{name}}</p>
+    <button @click="message = 'ボタンから変更'">変更</button>
+  </div>
+  <script>
+    var data = {
+      message: 'インスタンス１',
+      name: 'ゆうた'
+    }
+    /* 先にオブジェクトを変数に定義しておけば、Vueインスタンス内で呼び出すことは可能 */
+    var vm = new Vue ({
+      el: '#app',
+      data: data
+    })
+    console.log(data === vm.$data)
+    /* ユーザー定義のインスタンスは$をつける事で取得できる */
+    console.log(vm)
+  </script>
+</body>
+</html>
