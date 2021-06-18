@@ -11,6 +11,7 @@
   <div id='app'>
     <p>{{message}}</p>
     <p>{{name}}</p>
+    <p>{{myData}}</p>
     <button @click="message = 'ボタンから変更'">変更</button>
   </div>
   <script>
@@ -20,15 +21,16 @@
     }
     /* 先にオブジェクトを変数に定義しておけば、Vueインスタンス内で呼び出すことは可能 */
     var vm = new Vue ({
-      el: '#app',
-      data: data
+      data: data,
       computed: {
         myData: function() {
-          return this.$data
+          return this.$data;
           /* this.$で内側からもVueインスタンスにアクセスする事ができる */
         }
       }
     })
+    vm.$mount('#app')
+    /* $mountはelプロパティの代わりに使うことができ、idの指定等を動的に行えるメリットがある */
     console.log(data === vm.$data)
     /* ユーザー定義のインスタンスは$をつける事で取得できる */
     console.log(vm)
