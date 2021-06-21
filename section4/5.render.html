@@ -15,6 +15,7 @@
     <button @click="message = 'ボタンから変更'">変更</button>
   </div>
   <div id="app2"></div>
+  <div id="app3"></div>
   <script>
     var data = {
       message: 'インスタンス１',
@@ -36,8 +37,19 @@
         name: 'ゆうた'
       },
       template: '<h1>こんにちは、{{name}}</h1>'
+      /* templateプロパティを使ってhtml要素を書くことができる */
     }).$mount('#app2')
       /* 後ろに$mount()をつけても同じようにマウントされる */
+    
+    new Vue({
+      data: {
+        name: 'ゆうた'
+      },
+      render: function(h) {
+        return h('h1', 'こんにちは、' + this.name);
+        /* 第一引数にHTML要素、第二引数に表示する内容を書く */
+      },
+    }).$mount('#app3')
   </script>
 </body>
 </html>
